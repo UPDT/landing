@@ -1,0 +1,473 @@
+<!doctype html>
+<html lang="en" data-store="updt" data-theme-default="system" data-accent-default="azure" data-palette-default="tint" data-auth="guest">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>updt, web services and app development</title>
+<meta name="description" content="We build web services, SaaS, mobile and desktop apps, and landing pages. First version in 6–10 weeks, then an update every two weeks.">
+<link rel="canonical" href="https://updt.github.io/landing/">
+<link rel="icon" href="mark.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400..700&family=JetBrains+Mono:wght@400;500&family=Unbounded:wght@600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="ds/tokens/colors.css"><link rel="stylesheet" href="ds/tokens/accents.css"><link rel="stylesheet" href="ds/tokens/palettes.css">
+<link rel="stylesheet" href="ds/tokens/motion.css">
+<link rel="stylesheet" href="ds/tokens/type.css">
+<link rel="stylesheet" href="ds/tokens/space.css">
+<link rel="stylesheet" href="ds/tokens/scrollbar.css">
+<link rel="stylesheet" href="ds/tokens/icons.css">
+<link rel="stylesheet" href="ds/tokens/components.css">
+<link rel="stylesheet" href="ds/tokens/layers.css">
+<link rel="stylesheet" href="ds/tokens/data.css">
+<link rel="stylesheet" href="ds/tokens/nav.css">
+<link rel="stylesheet" href="ds/tokens/tiles.css">
+<link rel="stylesheet" href="ds/tokens/soft.css">
+<link rel="stylesheet" href="updt.css">
+<link rel="stylesheet" href="site.css">
+<link rel="stylesheet" href="landing.css">
+<script src="ds/js/theme.js"></script>
+<script>document.documentElement.classList.add('js')</script>
+<script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+<script src="ds/js/scroll-lock.js" defer></script>
+<script src="ds/js/layers.js" defer></script>
+<script src="ds/js/inputs.js" defer></script>
+<script src="ds/js/data.js" defer></script>
+<script src="ds/js/select.js" defer></script>
+<script src="ds/js/nav.js" defer></script>
+<script src="ds/js/scrollbar.js" defer></script>
+<script src="site.js" defer></script>
+<script src="landing.js" defer></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="updt, home"><svg viewBox="0 0 24 24" aria-hidden="true"><g fill="currentColor"><rect x="2.5" y="13" width="5" height="8.5" rx="2"/><rect x="9.5" y="8" width="5" height="13.5" rx="2"/><rect x="16.5" y="2.5" width="5" height="19" rx="2"/></g></svg>updt</a>
+    <nav class="navmenu" aria-label="Main navigation">
+      <button class="nav-trigger" data-menu="services" aria-expanded="false" aria-haspopup="true">Services<i data-lucide="chevron-down"></i></button>
+      <a class="nav-link" href="#how">How we work</a>
+      <a class="nav-link" href="#cases">Cases</a>
+      <a class="nav-link" href="#terms">Terms</a>
+      <a class="nav-link" href="#faq">FAQ</a>
+    </nav>
+    <div class="nav-panel" id="nav-panel">
+      <div class="nav-content" data-menu="services" role="region" aria-label="Services"><div class="mega" style="width:720px;grid-template-columns:1fr 1fr">
+        <div class="mega-col"><span class="mega-label">Products</span>
+          <a class="mega-item" href="#services"><span class="mega-ic"><i data-lucide="globe"></i></span><span><span class="mega-t">Web services<i data-lucide="chevron-right"></i></span><span class="mega-d">Portals, CRM, internal tools</span></span></a>
+          <a class="mega-item" href="#services"><span class="mega-ic"><i data-lucide="layers"></i></span><span><span class="mega-t">SaaS platforms<i data-lucide="chevron-right"></i></span><span class="mega-d">Plans, subscriptions, billing</span></span></a>
+          <a class="mega-item" href="#services"><span class="mega-ic"><i data-lucide="smartphone"></i></span><span><span class="mega-t">Mobile apps<i data-lucide="chevron-right"></i></span><span class="mega-d">iOS and Android from one codebase</span></span></a>
+        </div>
+        <div class="mega-col"><span class="mega-label">More</span>
+          <a class="mega-item" href="#services"><span class="mega-ic"><i data-lucide="monitor"></i></span><span><span class="mega-t">Desktop apps<i data-lucide="chevron-right"></i></span><span class="mega-d">Windows and macOS, work offline</span></span></a>
+          <a class="mega-item" href="#services"><span class="mega-ic"><i data-lucide="panels-top-left"></i></span><span><span class="mega-t">Landing pages<i data-lucide="chevron-right"></i></span><span class="mega-d">For a launch or an ad campaign</span></span></a>
+          <a class="mega-item" href="#services"><span class="mega-ic"><i data-lucide="life-buoy"></i></span><span><span class="mega-t">Support<i data-lucide="chevron-right"></i></span><span class="mega-d">Fixes and new versions</span></span></a>
+        </div>
+      </div></div>
+    </div>
+    <div class="nav-end">
+      <div class="nav-guest">
+        <a class="btn btn-primary btn-sm" href="#contact">Discuss a project</a>
+      </div>
+    </div>
+    <button class="burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="mnav"><span></span><span></span></button>
+  </div>
+</header>
+<div class="mnav" id="mnav" data-modal-layer role="dialog" aria-modal="true" aria-label="Navigation menu"><div class="mnav-in">
+  <nav class="mnav-list" id="mnav-list"></nav>
+  <div class="mnav-actions">
+    <div class="m-guest">
+      <a class="btn btn-secondary" href="https://t.me/updt_dev"><i data-lucide="send"></i>Message on Telegram</a>
+      <a class="btn btn-primary" href="#contact">Discuss a project</a>
+    </div>
+    <div class="mtheme"><span>Theme</span><div class="tseg" role="group" aria-label="Theme"><button class="tseg-b" role="radio" data-theme-v="light" aria-label="Light"><i data-lucide="sun"></i></button><button class="tseg-b" role="radio" data-theme-v="dark" aria-label="Dark"><i data-lucide="moon"></i></button><button class="tseg-b" role="radio" data-theme-v="system" aria-label="System"><i data-lucide="monitor"></i></button></div></div>
+  </div>
+</div></div>
+
+<main id="top">
+
+  <!-- ===== Первый экран со сценой ===== -->
+  <section class="lp-hero">
+    <div class="wrap">
+      <div class="lp-hero-tx">
+        <h1 class="hero-title in-1">We launch your product<span>and keep it growing</span></h1>
+        <p class="hero-lead in-2">Web services, SaaS, mobile and desktop apps, landing pages. We ship the first version in 6–10 weeks, then release an update every two weeks.</p>
+        <div class="hero-cta in-3">
+          <a class="btn btn-accent btn-xl" href="#contact">Discuss a project</a>
+          <a class="btn btn-secondary btn-xl" href="#how">How we work</a>
+        </div>
+      </div>
+
+      <div class="lp-scene in-4" aria-hidden="true">
+        <div class="lp-stage">
+          <div class="lp-card">
+            <!-- лицо: редактор с кодом экрана записи -->
+            <div class="lp-face lp-code">
+              <div class="lp-win-bar"><span class="lp-tab"><i data-lucide="file-code"></i>booking.tsx</span><span class="lp-branch"><i data-lucide="git-branch"></i>v1.3</span></div>
+              <pre class="lp-src"><code><span class="lp-ln"><span class="tk-k">export function</span> <span class="tk-f">Booking</span>() {</span><span class="lp-ln">  <span class="tk-k">const</span> slots <span class="tk-p">=</span> <span class="tk-f">useSlots</span>(<span class="tk-s">'thu'</span>)</span><span class="lp-ln">  <span class="tk-k">return</span> (</span><span class="lp-ln">    &lt;<span class="tk-f">Screen</span> title=<span class="tk-s">"Booking"</span>&gt;</span><span class="lp-ln">      {slots.<span class="tk-f">map</span>(s =&gt;</span><span class="lp-ln">        &lt;<span class="tk-f">Slot</span> {...s} /&gt;)}</span><span class="lp-ln">      &lt;<span class="tk-f">Button</span>&gt;Book&lt;/<span class="tk-f">Button</span>&gt;</span><span class="lp-ln">    &lt;/<span class="tk-f">Screen</span>&gt;</span><span class="lp-ln">  )</span><span class="lp-ln">}</span></code></pre>
+            </div>
+            <!-- оборот: готовый экран продукта -->
+            <div class="lp-face lp-app">
+              <div class="lp-app-head"><b>Booking</b><span>Thu, April 24</span></div>
+              <div class="lp-slot"><span>09:00</span><span>Hatha yoga</span><small>4 spots</small></div>
+              <div class="lp-slot on"><span>12:30</span><span>Stretching</span><small>2 spots</small></div>
+              <div class="lp-slot"><span>19:00</span><span>Pilates</span><small>6 spots</small></div>
+              <span class="lp-app-btn">Book</span>
+            </div>
+          </div>
+          <!-- мелкие вещи из того же мира: детали интерфейса и кода на разной глубине -->
+          <span class="lp-bit lp-b1"><span class="badge badge-accent">v1.3</span></span>
+          <span class="lp-bit lp-b2"><i data-lucide="braces"></i></span>
+          <span class="lp-bit lp-b3"><span class="lp-tgl"></span></span>
+          <span class="lp-bit lp-b4"><i data-lucide="mouse-pointer-2"></i></span>
+          <span class="lp-bit lp-b5"><span class="lp-pass"><i data-lucide="check"></i>Tests passed</span></span>
+          <span class="lp-bit lp-b6"><i data-lucide="code-xml"></i></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Живое демо: лента релизов ===== -->
+  <section id="demo" aria-labelledby="demo-h">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="t-label">How a product grows</span>
+        <h2 class="sec-title" id="demo-h">A new version every two weeks</h2>
+      </div>
+      <div class="lp-demo rv">
+        <div class="lp-rels" role="group" aria-label="Slot service versions">
+          <button class="lp-rel" type="button" data-v="0" aria-pressed="false"><span class="badge badge-mono">v1.0</span><span class="lp-rel-t">Launch: schedule and booking</span><time>March 12</time><small>Schedule, booking and studio dashboard</small></button>
+          <button class="lp-rel" type="button" data-v="1" aria-pressed="false"><span class="badge badge-mono">v1.1</span><span class="lp-rel-t">Card payment at booking</span><time>March 26</time><small>Stripe, receipt sent by email</small></button>
+          <button class="lp-rel" type="button" data-v="2" aria-pressed="false"><span class="badge badge-mono">v1.2</span><span class="lp-rel-t">Telegram reminders</span><time>April 9</time><small>The bot messages 3 hours before class</small></button>
+          <button class="lp-rel" type="button" data-v="3" aria-pressed="true"><span class="badge badge-mono">v1.3</span><span class="lp-rel-t">iOS and Android app</span><time>April 23</time><small>Published on the App Store and Google Play</small></button>
+        </div>
+
+        <div class="lp-prev" aria-live="polite">
+          <div class="lp-prev-bar"><span class="lp-url"><i data-lucide="lock"></i>slot.app/yoga-loft</span><span class="lp-ver">Version <b data-ver>1.3</b></span></div>
+          <div class="lp-prev-body">
+            <div class="lp-mod lp-mod-base">
+              <div class="lp-mod-h"><b>Yoga Loft</b><span>Thursday classes</span></div>
+              <div class="lp-row"><span>09:00</span><span>Hatha yoga</span><small>4 spots</small></div>
+              <div class="lp-row sel"><span>12:30</span><span>Stretching</span><small>2 spots</small></div>
+              <div class="lp-row"><span>19:00</span><span>Pilates</span><small>6 spots</small></div>
+            </div>
+            <div class="lp-mod" data-from="1">
+              <div class="lp-mod-in"><i data-lucide="credit-card"></i><span>Paid at booking<small>Stretching, 12:30</small></span><b>$15</b></div>
+              <span class="lp-lock"><i data-lucide="lock"></i>Coming in version 1.1</span>
+            </div>
+            <div class="lp-mod" data-from="2">
+              <div class="lp-mod-in"><i data-lucide="send"></i><span>Telegram reminder<small>Stretching today at 12:30</small></span><b>3 hours ahead</b></div>
+              <span class="lp-lock"><i data-lucide="lock"></i>Coming in version 1.2</span>
+            </div>
+            <div class="lp-mod" data-from="3">
+              <div class="lp-mod-in"><i data-lucide="smartphone"></i><span>Slot app<small>Two-tap booking</small></span><b class="lp-stores"><span class="badge">iOS</span><span class="badge">Android</span></b></div>
+              <span class="lp-lock"><i data-lucide="lock"></i>Coming in version 1.3</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="lp-hint rv"><i data-lucide="mouse-pointer-click"></i>Pick a version on the left and the service on the right changes</p>
+    </div>
+  </section>
+
+  <!-- ===== Услуги плитками ===== -->
+  <section id="services" aria-labelledby="srv-h">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="t-label">What we build</span>
+        <h2 class="sec-title" id="srv-h">Five kinds of products and support after launch</h2>
+      </div>
+      <div class="tiles">
+        <article class="tile w-4 t-2 rv">
+          <div class="tile-stage" style="--w:240px"><div class="lp-phone" aria-hidden="true">
+            <div class="lp-ph-head"><b>Order #1842</b><span>Breadbox</span></div>
+            <div class="lp-ph-map"><svg viewBox="0 0 200 96" preserveAspectRatio="none"><path class="road" d="M0 70h60l20-30h60l20 20h40M40 0v96M150 0v96"/><path class="route" d="M24 70h36l20-30h60l20 20"/></svg><span class="pin-a"></span><span class="pin-b"><i data-lucide="bike"></i></span></div>
+            <div class="lp-ph-step done"><i data-lucide="check"></i><span>Received<small>12:40</small></span></div>
+            <div class="lp-ph-step done"><i data-lucide="check"></i><span>Preparing<small>12:44</small></span></div>
+            <div class="lp-ph-step now"><i data-lucide="bike"></i><span class="hl">Courier on the way<small>Arriving in 8 minutes</small></span></div>
+            <div class="lp-ph-step"><i data-lucide="house"></i><span>Delivered<small>Around 1:20 pm</small></span></div>
+            <div class="lp-ph-tabs"><i data-lucide="store"></i><i data-lucide="shopping-bag"></i><i data-lucide="user"></i></div>
+          </div></div>
+          <div class="tile-tx"><h3><i data-lucide="smartphone"></i>Mobile apps</h3><p>iOS and Android from one Flutter codebase, published to the App Store and Google Play.</p></div>
+        </article>
+        <article class="tile w-8 stack rv">
+          <div class="tile-stage" style="--w:560px"><div class="vz-box lp-saas" aria-hidden="true">
+            <div class="lp-saas-h"><b>Subscriptions</b><span>Revenue <b class="hl">$4,120</b></span></div>
+            <div class="lp-saas-r"><span>Loft Studio</span><span>Business</span><span class="badge badge-success">Active</span><b>$59</b></div>
+            <div class="lp-saas-r"><span>Fade Barbers</span><span>Starter</span><span class="badge badge-success">Active</span><b>$24</b></div>
+            <div class="lp-saas-r"><span>Denta+ Clinic</span><span>Business</span><span class="badge badge-warning">Payment due</span><b>$59</b></div>
+          </div></div>
+          <div class="tile-tx"><h3><i data-lucide="layers"></i>SaaS platforms</h3><p>Plans, subscriptions, Stripe billing and accounts for your customers.</p></div>
+        </article>
+        <article class="tile w-8 stack rv">
+          <div class="tile-stage" style="--w:540px"><div class="lp-desk" aria-hidden="true">
+            <div class="lp-desk-bar"><span>Stock Pro</span><span class="lp-desk-sync"><i data-lucide="refresh-cw"></i>Synced 2 min ago</span></div>
+            <div class="lp-desk-body">
+              <div class="lp-desk-side"><span>Incoming</span><span class="on">Stock</span><span>Reports</span></div>
+              <div class="lp-desk-list">
+                <div class="vz-row"><span>Wheat flour, 50 kg</span><span>128 bags</span></div>
+                <div class="vz-row"><span>Sugar, 25 kg</span><span class="hl">12 bags</span></div>
+                <div class="vz-row"><span>Yeast, 0.5 kg</span><span>340 packs</span></div>
+              </div>
+            </div>
+          </div></div>
+          <div class="tile-tx"><h3><i data-lucide="monitor"></i>Desktop apps</h3><p>Windows and macOS apps on Electron and Tauri that keep working offline.</p></div>
+        </article>
+        <article class="tile w-4 stack rv">
+          <div class="tile-stage" style="--w:320px"><div class="vz-items" aria-hidden="true">
+            <div class="vz-item"><span><i data-lucide="file-text"></i>Request #318</span><span class="badge badge-warning">In review</span></div>
+            <div class="vz-item"><span><i data-lucide="file-text"></i>Request #317</span><span class="badge badge-info">In progress</span></div>
+            <div class="vz-item"><span><i data-lucide="file-text"></i>Request #316</span><span class="badge badge-success">Done</span></div>
+          </div></div>
+          <div class="tile-tx"><h3><i data-lucide="globe"></i>Web services</h3><p>Portals, CRM and internal tools instead of spreadsheets and chats.</p></div>
+        </article>
+        <article class="tile w-4 stack rv">
+          <div class="tile-stage" style="--w:300px"><div class="lp-mini" aria-hidden="true">
+            <div class="lp-mini-page"><i class="w1"></i><i class="w2"></i><i class="w3"></i><span class="lp-mini-btn"></span></div>
+            <div class="vz-row"><span>Page load</span><span class="hl">0.9 s</span></div>
+            <div class="vz-row"><span>Leads</span><span>To Telegram and CRM</span></div>
+          </div></div>
+          <div class="tile-tx"><h3><i data-lucide="panels-top-left"></i>Landing pages</h3><p>A page for a launch or ad campaign in 2–3 weeks.</p></div>
+        </article>
+        <article class="tile w-4 stack rv">
+          <div class="tile-stage" style="--w:320px"><div class="vz-box vz-mono vz-hist" aria-hidden="true">
+            <div><span class="t">14:02</span><span><span class="v">2.4.1</span> fixed SMS login</span></div>
+            <div><span class="t">11:30</span><span><span class="v hl">2.4.0</span> Excel export</span></div>
+            <div><span class="t">yday</span><span><span class="v">2.3.9</span> faster catalog</span></div>
+            <div><span class="t">mon</span><span><span class="v">2.3.8</span> Apple Pay added</span></div>
+          </div></div>
+          <div class="tile-tx"><h3><i data-lucide="life-buoy"></i>Support after launch</h3><p>Bugs fixed within 24 hours, new versions on schedule.</p></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Как работаем ===== -->
+  <section id="how" aria-labelledby="how-h">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="t-label">How we work</span>
+        <h2 class="sec-title" id="how-h">From the first call to launch</h2>
+      </div>
+      <ol class="how">
+        <li class="rv"><span class="how-n">01</span><h3>Estimate in 2 days</h3><p>We get on a call, break down the task and send a work plan with dates. The estimate is free.</p></li>
+        <li class="rv"><span class="how-n">02</span><h3>Launch in 6–10 weeks</h3><p>Every Friday we demo what is ready on a staging server. You see the product, not reports.</p></li>
+        <li class="rv"><span class="how-n">03</span><h3>Growth in versions</h3><p>After launch we ship an update every two weeks and keep the product running.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ===== Для кого ===== -->
+  <section id="audience" aria-labelledby="aud-h">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="t-label">Who it’s for</span>
+        <h2 class="sec-title" id="aud-h">Startups, companies and individuals</h2>
+      </div>
+      <div class="aud rv">
+        <div class="tabs" role="tablist" aria-label="Who it’s for"><span class="line"></span><button class="tab" role="tab" id="tab-st" aria-controls="pn-st" aria-selected="true">Startups</button><button class="tab" role="tab" id="tab-biz" aria-controls="pn-biz" aria-selected="false" tabindex="-1">Business</button><button class="tab" role="tab" id="tab-pr" aria-controls="pn-pr" aria-selected="false" tabindex="-1">Individuals</button></div>
+        <div class="aud-panels">
+          <div class="aud-pn" role="tabpanel" id="pn-st" aria-labelledby="tab-st">
+            <div class="aud-tx">
+              <h3>An MVP to test the idea on real customers</h3>
+              <p>We start with what the product can’t sell without. Everything else goes into later versions.</p>
+              <ul class="ticks">
+                <li><i data-lucide="check"></i>Figma prototype in the first week</li>
+                <li><i data-lucide="check"></i>Payments and analytics from version one</li>
+                <li><i data-lucide="check"></i>Code in your repository from day one</li>
+              </ul>
+            </div>
+            <div class="aud-viz lp-gantt" aria-hidden="true">
+              <div class="av-head"><b>MVP plan</b><span class="badge badge-mono">8 weeks</span></div>
+              <div class="lp-g-scale"><span>Week</span><div class="lp-g-wk"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span></div></div>
+              <div class="lp-g-row"><span>Prototype and design</span><i style="--s:0;--e:2"></i></div>
+              <div class="lp-g-row"><span>Development</span><i style="--s:1;--e:7"></i></div>
+              <div class="lp-g-row"><span>Customer testing</span><i style="--s:5;--e:8"></i></div>
+              <div class="lp-g-row"><span>Launch</span><i class="hl-bar" style="--s:7;--e:8"></i></div>
+            </div>
+          </div>
+          <div class="aud-pn" role="tabpanel" id="pn-biz" aria-labelledby="tab-biz">
+            <div class="aud-tx">
+              <h3>A service connected to your systems</h3>
+              <p>We connect the tools your company already uses, so nobody copies data by hand.</p>
+              <ul class="ticks">
+                <li><i data-lucide="check"></i>Sync with HubSpot, Salesforce and QuickBooks</li>
+                <li><i data-lucide="check"></i>Roles and permissions for staff</li>
+                <li><i data-lucide="check"></i>Contract and invoices for every stage</li>
+              </ul>
+            </div>
+            <div class="aud-viz" aria-hidden="true">
+              <div class="av-head"><b>Integrations</b><span class="badge badge-mono">4 systems</span></div>
+              <div class="av-row"><span>QuickBooks</span><span class="badge badge-success">Synced 2 min ago</span></div>
+              <div class="av-row"><span>HubSpot</span><span class="badge badge-success">Connected</span></div>
+              <div class="av-row"><span>Stripe</span><span class="badge badge-success">Connected</span></div>
+              <div class="av-row"><span>Salesforce</span><span class="badge badge-warning">Setting up</span></div>
+            </div>
+          </div>
+          <div class="aud-pn" role="tabpanel" id="pn-pr" aria-labelledby="tab-pr">
+            <div class="aud-tx">
+              <h3>A site or service for your own business</h3>
+              <p>For experts, course authors and craftspeople: a site with booking, payments or lead forms.</p>
+              <ul class="ticks">
+                <li><i data-lucide="check"></i>Landing page in 2–3 weeks</li>
+                <li><i data-lucide="check"></i>Leads go straight to Telegram</li>
+                <li><i data-lucide="check"></i>Help with structure and copy</li>
+              </ul>
+            </div>
+            <div class="aud-viz" aria-hidden="true">
+              <div class="av-head"><b>Landing plan</b><span class="badge badge-mono">by day</span></div>
+              <div class="av-row"><span>Structure and copy</span><span>3 days</span></div>
+              <div class="av-row"><span>Design</span><span>4 days</span></div>
+              <div class="av-row"><span>Build and lead form</span><span>5 days</span></div>
+              <div class="av-row"><span>Domain and launch</span><span class="lp-acc">Done in 13 days</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Подходит ===== -->
+  <section id="fit" aria-labelledby="fit-h">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="t-label">Good fit</span>
+        <h2 class="sec-title" id="fit-h">What people come to us with</h2>
+      </div>
+      <ul class="lp-fit">
+        <li class="rv"><i data-lucide="check"></i><b>Test an idea</b><span>An MVP for first customers and investors</span></li>
+        <li class="rv"><i data-lucide="check"></i><b>Leave spreadsheets</b><span>Orders, stock and clients in one service instead of Excel</span></li>
+        <li class="rv"><i data-lucide="check"></i><b>Take over a project</b><span>We pick up a previous contractor’s code and carry on</span></li>
+        <li class="rv"><i data-lucide="check"></i><b>Add an app</b><span>A mobile version of a site or service you already have</span></li>
+        <li class="rv"><i data-lucide="check"></i><b>Run ads</b><span>A campaign landing page with analytics and lead capture</span></li>
+        <li class="rv"><i data-lucide="check"></i><b>Free up your team</b><span>An internal tool for reports and routine work</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===== Условия вместо цены ===== -->
+  <section id="terms" aria-labelledby="terms-h">
+    <div class="wrap">
+      <div class="price rv">
+        <div class="price-tx">
+          <span class="t-label">Terms</span>
+          <h2 class="sec-title" id="terms-h">You know the price before we start</h2>
+          <p>The estimate is free. Once the spec is agreed, the price is fixed in the contract and doesn’t grow unless the scope changes.</p>
+        </div>
+        <div class="price-card">
+          <div class="pc-head"><span>Terms of work</span><span class="badge badge-accent">Under contract</span></div>
+          <div class="vz-rows lp-terms">
+            <div class="vz-row"><span>Project estimate</span><span class="lp-acc">Free</span></div>
+            <div class="vz-row"><span>Estimate time</span><span>2 business days</span></div>
+            <div class="vz-row"><span>Price</span><span>Fixed in the contract</span></div>
+            <div class="vz-row"><span>Payment</span><span>By stage, after each demo</span></div>
+            <div class="vz-row"><span>Warranty</span><span>6 months</span></div>
+          </div>
+          <a class="btn btn-accent btn-block btn-lg" href="#contact">Discuss a project</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Кейсы ===== -->
+  <section id="cases" aria-labelledby="cases-h">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="t-label">Cases</span>
+        <h2 class="sec-title" id="cases-h">What we’ve launched</h2>
+      </div>
+      <div class="lp-cases">
+        <article class="lp-case rv">
+          <span class="badge badge-mono">SaaS</span>
+          <h3>Online booking for a yoga studio chain</h3>
+          <p>Replaced booking via DMs with a service for payments, passes and reminders.</p>
+          <div class="lp-case-n"><div><b>3,400</b><span>per month</span></div><div><b>9 weeks</b><span>to launch</span></div></div>
+        </article>
+        <article class="lp-case rv">
+          <span class="badge badge-mono">Mobile app</span>
+          <h3>Delivery app for a bakery</h3>
+          <p>Ordering, payment and courier tracking on iOS and Android from one codebase.</p>
+          <div class="lp-case-n"><div><b>4.8</b><span>on the App Store</span></div><div><b>8 weeks</b><span>to launch</span></div></div>
+        </article>
+        <article class="lp-case rv">
+          <span class="badge badge-mono">Web service</span>
+          <h3>Stock control for a wholesaler</h3>
+          <p>Moved stock from Excel to a service with accounting sync and staff roles.</p>
+          <div class="lp-case-n"><div><b>40</b><span>staff users</span></div><div><b>−6 h</b><span>of checks a week</span></div></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Вопросы ===== -->
+  <section id="faq" aria-labelledby="faq-h">
+    <div class="wrap faq">
+      <div class="sec-head rv">
+        <span class="t-label">FAQ</span>
+        <h2 class="sec-title" id="faq-h">Common questions</h2>
+      </div>
+      <div class="acc rv" data-single>
+        <details class="acc-item"><summary><span>How much does development cost?</span></summary><div class="acc-body"><p>We name the price after a free estimate, usually within 2 business days. It is fixed in the contract, and you pay by stage after each demo.</p></div></details>
+        <details class="acc-item"><summary><span>Can we start without a spec?</span></summary><div class="acc-body"><p>Yes. We break down the task on the first call, then write the spec ourselves and agree it with you.</p></div></details>
+        <details class="acc-item"><summary><span>Who owns the code?</span></summary><div class="acc-body"><p>You do. The code lives in your repository from day one, and the rights transfer under the contract.</p></div></details>
+        <details class="acc-item"><summary><span>Do you take over projects from other contractors?</span></summary><div class="acc-body"><p>Yes. We review the code in 3–5 days, then send a plan of changes with dates.</p></div></details>
+        <details class="acc-item"><summary><span>What happens after launch?</span></summary><div class="acc-body"><p>We keep working under a support contract. Bugs are fixed within 24 hours, and new versions ship every two weeks.</p></div></details>
+        <details class="acc-item"><summary><span>Do you work under a contract?</span></summary><div class="acc-body"><p>Yes, with companies and individuals alike. You get an invoice after every stage.</p></div></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Заявка ===== -->
+  <section class="lp-contact" id="contact" aria-labelledby="contact-h">
+    <div class="wrap">
+      <div class="lp-contact-in rv">
+        <div class="lp-contact-tx">
+          <span class="t-label">Get in touch</span>
+          <h2 class="sec-title" id="contact-h">Tell us about your project</h2>
+          <p>We reply within one business day and suggest a time for a call. The estimate is free.</p>
+          <ol class="lp-next">
+            <li><span class="how-n">01</span><span>A 30-minute call at a time that suits you</span></li>
+            <li><span class="how-n">02</span><span>Work plan and dates within 2 business days</span></li>
+            <li><span class="how-n">03</span><span>Contract and kickoff once the plan is agreed</span></li>
+          </ol>
+          <div class="lp-links">
+            <a class="link" href="https://t.me/updt_dev"><i data-lucide="send"></i>@updt_dev</a>
+            <a class="link" href="mailto:hello@updt.dev"><i data-lucide="mail"></i>hello@updt.dev</a>
+          </div>
+        </div>
+        <div class="lp-form-box">
+          <form class="lp-form" id="lead" novalidate data-e-name="Enter your name" data-e-contact="Add your Telegram or phone" data-e-contact-bad="Check the handle or number">
+            <label class="field"><span class="label">Name</span><input class="input" name="name" autocomplete="name" required></label>
+            <label class="field"><span class="label">Telegram or phone</span><input class="input" name="contact" autocomplete="tel" required><span class="hint">We’ll reach you wherever is easiest</span></label>
+            <label class="field"><span class="label">What you need</span>
+              <select class="select" name="type">
+                <option>Web service</option><option>SaaS platform</option><option>Mobile app</option><option>Desktop app</option><option>Landing page</option><option>Support for an existing project</option>
+              </select></label>
+            <label class="field"><span class="label">About the project <span class="opt">optional</span></span><textarea class="textarea" name="about" rows="3" placeholder="What the product should do and by when"></textarea></label>
+            <button class="btn btn-accent btn-block btn-lg" type="submit">Discuss a project</button>
+          </form>
+          <div class="lp-sent" role="status" tabindex="-1">
+            <i data-lucide="circle-check"></i>
+            <h3>Request sent</h3>
+            <p>We’ll get back to you within one business day</p>
+            <button class="btn btn-secondary" type="button" id="lead-again">Send another</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand"><a class="logo" href="#top"><svg viewBox="0 0 24 24" aria-hidden="true"><g fill="currentColor"><rect x="2.5" y="13" width="5" height="8.5" rx="2"/><rect x="9.5" y="8" width="5" height="13.5" rx="2"/><rect x="16.5" y="2.5" width="5" height="19" rx="2"/></g></svg>updt</a><p>Web services, apps and landing pages</p></div>
+      <nav class="foot-cols" aria-label="Footer">
+        <div><b>Services</b><a href="#services">Web services</a><a href="#services">SaaS platforms</a><a href="#services">Mobile apps</a><a href="#services">Desktop apps</a><a href="#services">Landing pages</a></div>
+        <div><b>Company</b><a href="#how">How we work</a><a href="#cases">Cases</a><a href="#terms">Terms</a><a href="#faq">FAQ</a></div>
+        <div><b>Contact</b><a href="https://t.me/updt_dev">Telegram</a><a href="mailto:hello@updt.dev">Email</a></div>
+      </nav>
+    </div>
+    <div class="foot-bottom"><span>© 2026 updt</span><div class="tseg" role="group" aria-label="Theme"><button class="tseg-b" role="radio" data-theme-v="light" aria-label="Light"><i data-lucide="sun"></i></button><button class="tseg-b" role="radio" data-theme-v="dark" aria-label="Dark"><i data-lucide="moon"></i></button><button class="tseg-b" role="radio" data-theme-v="system" aria-label="System"><i data-lucide="monitor"></i></button></div></div>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,322 @@
+/* Лендинг updt — только раскладка этой страницы; общее для страниц — site.css, бренд — updt.css.
+   Цвета, шрифты, радиусы, отступы и компоненты — из токенов системы (мягкий стиль, soft.css). */
+
+/* ---------- Первый экран со сценой ---------- */
+/* ровно в окно под шапкой (72px в мягком стиле), содержимое по центру; две равные колонки, до 960px одна */
+.lp-hero { padding: 0; overflow: clip }
+.lp-hero .wrap { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--sp-12); align-items: center; min-height: calc(100svh - 72px); padding-block: var(--sp-12) }
+.lp-hero-tx { display: grid; gap: var(--sp-6); align-content: center }
+.hero-title { font-size: var(--fs-4xl); line-height: var(--lh-4xl); letter-spacing: var(--ls-4xl); font-weight: var(--w-semibold); text-wrap: balance }
+.hero-title > span { display: block; color: var(--accent-text) }
+.hero-lead { max-width: 520px; font-size: var(--fs-md); line-height: var(--lh-md); letter-spacing: var(--ls-md); color: var(--text-muted); text-wrap: pretty }
+.lp-hero .hero-cta { margin-top: var(--sp-2) }
+
+/* сцена: окно кода поворачивается и становится экраном продукта; вокруг детали интерфейса и кода */
+.lp-scene { position: relative; width: 100%; aspect-ratio: 1 }
+.lp-stage { position: absolute; inset: 0; display: grid; place-items: center; perspective: 1600px }
+/* обе стороны в одной ячейке: высота карточки = высота кода, без пустоты внизу */
+.lp-card { display: grid; width: 76%; transform-style: preserve-3d; animation: lp-flip 14s var(--ease-in-out) infinite }
+.lp-face { grid-area: 1 / 1; display: grid; align-content: start; border-radius: var(--r-xl); background: var(--bg-raised); overflow: hidden;
+  box-shadow: inset 0 0 0 1px var(--border), 0 32px 64px -32px #0007; backface-visibility: hidden; -webkit-backface-visibility: hidden }
+[data-theme="light"] .lp-face { box-shadow: inset 0 0 0 1px var(--border), 0 32px 64px -32px #1c213326 }
+.lp-win-bar { display: flex; align-items: center; justify-content: space-between; gap: var(--sp-3); height: 44px; padding: 0 var(--sp-4); box-shadow: inset 0 -1px 0 var(--border-subtle);
+  font: var(--fs-xs)/var(--lh-xs) var(--font-mono); color: var(--text-muted) }
+.lp-tab, .lp-branch { display: inline-flex; align-items: center; gap: 6px; white-space: nowrap }
+.lp-tab .lucide, .lp-branch .lucide { width: 14px; height: 14px }
+.lp-src { margin: 0; padding: var(--sp-4); font: var(--fs-xs)/24px var(--font-mono); color: var(--text-secondary); white-space: pre; overflow: hidden }
+.lp-ln { display: block; animation: lp-type 14s var(--ease-out) infinite both }
+.lp-ln:nth-child(1) { animation-delay: .4s } .lp-ln:nth-child(2) { animation-delay: .75s } .lp-ln:nth-child(3) { animation-delay: 1.1s } .lp-ln:nth-child(4) { animation-delay: 1.45s }
+.lp-ln:nth-child(5) { animation-delay: 1.8s } .lp-ln:nth-child(6) { animation-delay: 2.15s } .lp-ln:nth-child(7) { animation-delay: 2.5s } .lp-ln:nth-child(8) { animation-delay: 2.85s }
+.lp-ln:nth-child(9) { animation-delay: 3.2s } .lp-ln:nth-child(10) { animation-delay: 3.55s }
+
+.lp-app { transform: rotateY(180deg); gap: var(--sp-2); padding: var(--sp-5) }
+.lp-app-head { display: flex; align-items: baseline; justify-content: space-between; gap: var(--sp-3); margin-bottom: var(--sp-2) }
+.lp-app-head b { font-size: var(--fs-lg); line-height: var(--lh-lg); font-weight: var(--w-semibold) }
+.lp-app-head span { font-size: var(--fs-sm); line-height: var(--lh-sm); color: var(--text-muted) }
+.lp-slot { display: grid; grid-template-columns: 6ch minmax(0, 1fr) auto; align-items: center; gap: var(--sp-3); height: 48px; padding: 0 var(--sp-4); border-radius: var(--r-md);
+  background: var(--surface); box-shadow: inset 0 0 0 1px var(--border-subtle); font-size: var(--fs-sm); line-height: var(--lh-sm) }
+.lp-slot span:first-child { font-variant-numeric: tabular-nums; color: var(--text-muted) }
+.lp-slot small { font-size: var(--fs-xs); color: var(--text-muted) }
+.lp-slot.on { animation: lp-pick 14s var(--ease-out) infinite }
+.lp-app-btn { display: grid; place-items: center; height: var(--h-lg); margin-top: var(--sp-2); border-radius: var(--r-full); background: var(--accent); color: var(--accent-fg); font-size: var(--fs-sm); font-weight: var(--w-semibold) }
+
+.lp-bit { position: absolute; display: grid; place-items: center; animation: lp-float 8s ease-in-out infinite; will-change: transform }
+.lp-bit > .lucide { box-sizing: content-box; width: 20px; height: 20px; padding: 12px; border-radius: var(--r-lg); background: var(--surface); color: var(--text-muted); box-shadow: inset 0 0 0 1px var(--border) }
+.lp-b1 { left: 4%; top: 9%; animation-duration: 7s }
+.lp-b1 .badge { height: 28px; padding: 0 var(--sp-3); font-size: var(--fs-sm) }
+.lp-b2 { right: 5%; top: 6%; animation-duration: 9s; animation-delay: -2s; opacity: .55; scale: .8 }
+.lp-b3 { left: 2%; bottom: 22%; animation-duration: 8s; animation-delay: -4s }
+.lp-tgl { display: block; width: 44px; height: 26px; padding: 3px; border-radius: var(--r-full); background: var(--accent) }
+.lp-tgl::after { content: ""; display: block; width: 20px; height: 20px; margin-left: auto; border-radius: 50%; background: var(--accent-fg) }
+.lp-b4 { right: 8%; bottom: 25%; animation-duration: 6.5s; animation-delay: -1s }
+.lp-b4 > .lucide { padding: 0; background: none; box-shadow: none; width: 26px; height: 26px; color: var(--text); fill: var(--bg) }
+.lp-b5 { right: 3%; bottom: 6%; animation-duration: 8.5s; animation-delay: -3s }
+.lp-pass { display: inline-flex; align-items: center; gap: 6px; height: 36px; padding: 0 var(--sp-4); border-radius: var(--r-full); background: var(--surface); box-shadow: inset 0 0 0 1px var(--border);
+  font-size: var(--fs-sm); color: var(--text-secondary); white-space: nowrap }
+.lp-pass .lucide { width: 16px; height: 16px; color: var(--success-text, var(--accent-text)) }
+.lp-b6 { left: 44%; top: 2%; animation-duration: 10s; animation-delay: -5s; opacity: .45; scale: .72 }
+
+@keyframes lp-flip {
+  0%, 40% { transform: rotateY(0) }
+  50%, 88% { transform: rotateY(180deg) }
+  98%, 100% { transform: rotateY(360deg) }
+}
+/* строки «печатаются» на лице и гаснут, пока виден оборот (50–88%) — сброс невидим */
+@keyframes lp-type {
+  0% { opacity: 0; transform: translateX(-6px) }
+  3%, 55% { opacity: 1; transform: none }
+  57%, 100% { opacity: 0; transform: none }
+}
+/* слот выбирается после поворота и сбрасывается, пока оборот скрыт */
+@keyframes lp-pick {
+  0%, 56% { background: var(--surface); box-shadow: inset 0 0 0 1px var(--border-subtle) }
+  60%, 88% { background: var(--accent-tint); box-shadow: inset 0 0 0 1px var(--accent-border) }
+  96%, 100% { background: var(--surface); box-shadow: inset 0 0 0 1px var(--border-subtle) }
+}
+@keyframes lp-float { 0%, 100% { transform: translateY(0) } 50% { transform: translateY(-10px) } }
+/* сцена за экраном не анимируется */
+.lp-scene.off *, .lp-scene.off { animation-play-state: paused !important }
+@media (prefers-reduced-motion: reduce) {
+  .lp-card, .lp-ln, .lp-slot.on, .lp-bit { animation: none }
+  .lp-card { transform: rotateY(180deg) }
+  .lp-slot.on { background: var(--accent-tint); box-shadow: inset 0 0 0 1px var(--accent-border) }
+}
+
+/* ---------- Демо: лента релизов и сервис ---------- */
+/* лента 4 релиза по ~96px и превью с 4 модулями сходятся по высоте содержимым */
+.lp-demo { display: grid; grid-template-columns: minmax(0, 380px) minmax(0, 1fr); gap: var(--grid-gap); align-items: start }
+.lp-rels { display: grid; gap: var(--sp-3); padding: var(--sp-2); border-radius: var(--r-xl); background: var(--bg-raised); box-shadow: inset 0 0 0 1px var(--border) }
+.lp-rel { --hd: var(--dur-hover-out); display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: var(--sp-1) var(--sp-3); padding: var(--sp-4); border: 0; border-radius: var(--r-lg);
+  background: transparent; color: var(--text); font: inherit; text-align: left; cursor: pointer; transition: background-color var(--hd) var(--ease-hover), box-shadow var(--hd) var(--ease-hover) }
+.lp-rel .badge { grid-row: 1; grid-column: 1; justify-self: start }
+.lp-rel time { grid-row: 1; grid-column: 2; justify-self: end; font-size: var(--fs-sm); line-height: var(--lh-sm); color: var(--text-muted); white-space: nowrap }
+.lp-rel-t { grid-column: 1 / -1; font-size: var(--fs-base); line-height: var(--lh-base); font-weight: var(--w-medium) }
+.lp-rel small { grid-column: 1 / -1; font-size: var(--fs-sm); line-height: var(--lh-sm); color: var(--text-muted) }
+.lp-rel[aria-pressed="true"] { background: var(--surface); box-shadow: inset 0 0 0 1px var(--border) }
+.lp-rel[aria-pressed="true"] .badge { background: var(--accent-tint); color: var(--accent-text) }
+@media (hover: hover) and (pointer: fine) { .lp-rel:hover { --hd: var(--dur-hover-in); background: var(--surface-hover) } .lp-rel[aria-pressed="true"]:hover { background: var(--surface) } }
+.lp-rel:focus-visible { outline: 2px solid var(--focus); outline-offset: -2px }
+
+.lp-prev { border-radius: var(--r-xl); background: var(--bg-raised); box-shadow: inset 0 0 0 1px var(--border); overflow: hidden }
+.lp-prev-bar { display: flex; align-items: center; justify-content: space-between; gap: var(--sp-4); height: 48px; padding: 0 var(--sp-5); box-shadow: inset 0 -1px 0 var(--border-subtle);
+  font-size: var(--fs-xs); line-height: var(--lh-xs); color: var(--text-muted) }
+.lp-url { display: inline-flex; align-items: center; gap: 6px; font-family: var(--font-mono); white-space: nowrap }
+.lp-url .lucide { width: 12px; height: 12px }
+.lp-ver b { font-weight: var(--w-semibold); color: var(--text); font-variant-numeric: tabular-nums }
+.lp-prev-body { display: grid; gap: var(--sp-3); padding: var(--sp-5); background: var(--bg) }
+.lp-mod-base { display: grid; gap: var(--sp-2) }
+.lp-mod-h { display: flex; align-items: baseline; justify-content: space-between; gap: var(--sp-3); margin-bottom: var(--sp-1) }
+.lp-mod-h b { font-size: var(--fs-md); line-height: var(--lh-md); font-weight: var(--w-semibold) }
+.lp-mod-h span { font-size: var(--fs-sm); line-height: var(--lh-sm); color: var(--text-muted) }
+.lp-row { display: grid; grid-template-columns: 6ch minmax(0, 1fr) auto; align-items: center; gap: var(--sp-3); height: 48px; padding: 0 var(--sp-4); border-radius: var(--r-md);
+  background: var(--surface); box-shadow: inset 0 0 0 1px var(--border-subtle); font-size: var(--fs-sm); line-height: var(--lh-sm) }
+.lp-row span:first-child { color: var(--text-muted); font-variant-numeric: tabular-nums }
+.lp-row small { font-size: var(--fs-xs); color: var(--text-muted); white-space: nowrap }
+.lp-row.sel { background: var(--accent-tint); box-shadow: inset 0 0 0 1px var(--accent-border) }
+/* модуль версии: содержимое и заглушка «появится» в одной ячейке, смена кроссфейдом, высота не меняется */
+.lp-mod[data-from] { display: grid; border-radius: var(--r-md); box-shadow: inset 0 0 0 1px var(--border-subtle); background: var(--surface);
+  transition: background-color var(--dur-swap-in) var(--ease-hover), box-shadow var(--dur-swap-in) var(--ease-hover) }
+.lp-mod-in, .lp-lock { grid-area: 1 / 1; transition: opacity var(--dur-swap-out) var(--ease-hover) }
+.lp-mod-in { display: grid; grid-template-columns: 20px minmax(0, 1fr) auto; align-items: center; gap: var(--sp-3); min-height: 64px; padding: var(--sp-3) var(--sp-4) }
+.lp-mod-in > .lucide { width: 18px; height: 18px; color: var(--accent-text) }
+.lp-mod-in > span { display: grid; font-size: var(--fs-sm); line-height: var(--lh-sm); min-width: 0 }
+.lp-mod-in small { font-size: var(--fs-xs); line-height: var(--lh-xs); color: var(--text-muted) }
+.lp-mod-in > b { font-size: var(--fs-sm); font-weight: var(--w-semibold); white-space: nowrap; font-variant-numeric: tabular-nums }
+.lp-stores { display: flex; gap: var(--sp-1) }
+.lp-lock { display: flex; align-items: center; justify-content: center; gap: var(--sp-2); font-size: var(--fs-sm); line-height: var(--lh-sm); color: var(--text-faint); opacity: 0; pointer-events: none }
+.lp-lock .lucide { width: 14px; height: 14px }
+.lp-mod.locked { background: transparent; box-shadow: inset 0 0 0 1px var(--border) }
+.lp-mod.locked .lp-mod-in { opacity: 0 }
+.lp-mod.locked .lp-lock { opacity: 1; transition-duration: var(--dur-swap-in); transition-delay: var(--dur-swap-out) }
+.lp-mod:not(.locked) .lp-mod-in { transition-duration: var(--dur-swap-in); transition-delay: var(--dur-swap-out) }
+/* только что вышедший модуль коротко подсвечивается: пришло сразу, ушло за 900 мс */
+.lp-mod.fresh { background: var(--accent-tint); box-shadow: inset 0 0 0 1px var(--accent-border); transition-duration: 0ms }
+.lp-mod.faded { transition-duration: 900ms }
+.lp-hint { display: flex; align-items: center; justify-content: center; gap: var(--sp-2); margin-top: var(--sp-5); font-size: var(--fs-sm); line-height: var(--lh-sm); color: var(--text-muted) }
+.lp-hint .lucide { width: 16px; height: 16px }
+
+/* ---------- Услуги: вещи в плитках ---------- */
+.lp-phone { display: grid; gap: var(--sp-2); padding: var(--sp-5) var(--sp-4) var(--sp-3); border-radius: 32px; background: var(--surface); box-shadow: inset 0 0 0 1px var(--border), inset 0 0 0 6px var(--bg-raised) }
+.lp-ph-head { display: grid; gap: 2px; padding: var(--sp-2) var(--sp-2) var(--sp-3) }
+.lp-ph-head b { font-size: var(--fs-md); line-height: var(--lh-md); font-weight: var(--w-semibold) }
+.lp-ph-head span { font-size: var(--fs-xs); line-height: var(--lh-xs); color: var(--text-muted) }
+/* карта с маршрутом курьера: дороги линиями, путь цветом */
+.lp-ph-map { position: relative; height: 96px; margin-bottom: var(--sp-1); border-radius: var(--r-md); background: var(--bg-raised); box-shadow: inset 0 0 0 1px var(--border-subtle); overflow: hidden }
+.lp-ph-map svg { position: absolute; inset: 0; width: 100%; height: 100% }
+.lp-ph-map .road { fill: none; stroke: var(--surface-strong); stroke-width: 6 }
+.lp-ph-map .route { fill: none; stroke: var(--accent); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round }
+.lp-ph-map .pin-a { position: absolute; left: 10%; top: 70%; width: 10px; height: 10px; margin: -5px; border-radius: 50%; background: var(--text-muted) }
+.lp-ph-map .pin-b { position: absolute; left: 80%; top: 62%; display: grid; place-items: center; width: 28px; height: 28px; margin: -14px; border-radius: var(--r-sm); background: var(--accent); color: var(--accent-fg) }
+.lp-ph-map .pin-b .lucide { width: 16px; height: 16px }
+.lp-ph-step { display: grid; grid-template-columns: 32px minmax(0, 1fr); align-items: center; gap: var(--sp-3); padding: var(--sp-2) }
+.lp-ph-step > .lucide { box-sizing: content-box; width: 16px; height: 16px; padding: 8px; border-radius: var(--r-md); background: var(--bg-raised); color: var(--text-faint); box-shadow: inset 0 0 0 1px var(--border-subtle) }
+.lp-ph-step.done > .lucide { color: var(--text-muted) }
+.lp-ph-step.now > .lucide { background: var(--accent); color: var(--accent-fg); box-shadow: none }
+.lp-ph-step > span { display: grid; font-size: var(--fs-sm); line-height: var(--lh-sm) }
+.lp-ph-step small { font-size: var(--fs-xs); line-height: var(--lh-xs); color: var(--text-muted) }
+.lp-ph-step:not(.done, .now) > span { color: var(--text-muted) }
+.lp-ph-tabs { display: flex; justify-content: space-around; margin-top: var(--sp-3); padding-top: var(--sp-3); box-shadow: inset 0 1px 0 var(--border-subtle); color: var(--text-faint) }
+.lp-ph-tabs .lucide { width: 18px; height: 18px }
+.lp-ph-tabs .lucide:first-child { color: var(--accent-text) }
+
+.lp-saas { display: grid; padding: var(--sp-2) var(--sp-5) }
+.lp-saas-h { display: flex; align-items: center; justify-content: space-between; gap: var(--sp-4); min-height: 48px; box-shadow: inset 0 -1px 0 var(--border-subtle); font-size: var(--fs-sm); line-height: var(--lh-sm) }
+.lp-saas-h > b { font-weight: var(--w-semibold) }
+.lp-saas-h > span { color: var(--text-muted); white-space: nowrap }
+.lp-saas-h > span b { font-weight: var(--w-semibold); font-variant-numeric: tabular-nums }
+.lp-saas-r { display: grid; grid-template-columns: minmax(0, 1fr) 9ch auto 9ch; align-items: center; gap: var(--sp-4); min-height: 48px; font-size: var(--fs-sm); line-height: var(--lh-sm); color: var(--text-secondary) }
+.lp-saas-r + .lp-saas-r { box-shadow: inset 0 1px 0 var(--border-subtle) }
+.lp-saas-r > span:first-child { color: var(--text); overflow: hidden; text-overflow: ellipsis; white-space: nowrap }
+.lp-saas-r > b { justify-self: end; font-weight: var(--w-regular); color: var(--text); font-variant-numeric: tabular-nums; white-space: nowrap }
+.lp-saas-r .badge { justify-self: start }
+
+.lp-desk { display: grid; border-radius: var(--r-md); background: var(--surface); box-shadow: inset 0 0 0 1px var(--border-subtle); overflow: hidden }
+.lp-desk-bar { display: flex; align-items: center; justify-content: space-between; gap: var(--sp-4); height: 40px; padding: 0 var(--sp-4); background: var(--bg-raised); box-shadow: inset 0 -1px 0 var(--border-subtle);
+  font-size: var(--fs-xs); line-height: var(--lh-xs); color: var(--text-muted) }
+.lp-desk-bar > span:first-child { font-weight: var(--w-semibold); color: var(--text) }
+.lp-desk-sync { display: inline-flex; align-items: center; gap: 6px; white-space: nowrap }
+.lp-desk-sync .lucide { width: 12px; height: 12px }
+.lp-desk-body { display: grid; grid-template-columns: 120px minmax(0, 1fr) }
+.lp-desk-side { display: grid; align-content: start; gap: 2px; padding: var(--sp-2); box-shadow: inset -1px 0 0 var(--border-subtle); font-size: var(--fs-sm); line-height: var(--lh-sm); color: var(--text-muted) }
+.lp-desk-side span { padding: 6px var(--sp-3); border-radius: var(--r-sm) }
+.lp-desk-side .on { background: var(--surface-active); color: var(--text) }
+.lp-desk-list { padding: 0 var(--sp-4) }
+.lp-desk-list .vz-row:last-child { box-shadow: none }
+
+.lp-mini { display: grid; gap: var(--sp-1) }
+.lp-mini-page { display: grid; gap: var(--sp-2); justify-items: start; margin-bottom: var(--sp-2); padding: var(--sp-4); border-radius: var(--r-md); background: var(--surface); box-shadow: inset 0 0 0 1px var(--border-subtle) }
+.lp-mini-page i { display: block; height: 8px; border-radius: var(--r-full); background: var(--surface-strong) }
+.lp-mini-page .w1 { width: 72%; height: 12px; background: var(--text-faint) } .lp-mini-page .w2 { width: 90% } .lp-mini-page .w3 { width: 60% }
+.lp-mini-btn { width: 88px; height: 24px; margin-top: var(--sp-1); border-radius: var(--r-full); background: var(--accent) }
+.lp-mini .vz-row:last-child { box-shadow: none }
+
+/* ---------- Как работаем: полоски вместо кружков ---------- */
+.how { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--sp-8) }
+.how li { position: relative; display: grid; gap: var(--sp-3); align-content: start; padding-top: var(--sp-6) }
+.how li::before, .how li::after { content: ""; position: absolute; left: 0; top: 0; width: 100%; height: 4px; border-radius: var(--r-full) }
+.how li::before { background: var(--border-strong) }
+.how li::after { background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform var(--dur-slide) var(--ease-out) }
+.how li.in::after { transform: none }
+.how li:nth-child(2)::after { transition-delay: 240ms } .how li:nth-child(3)::after { transition-delay: 480ms }
+.how-n { font: var(--w-medium) var(--fs-xs)/var(--lh-xs) var(--font-mono); color: var(--accent-text) }
+.how h3 { font-size: var(--fs-xl); line-height: var(--lh-xl); letter-spacing: var(--ls-xl); font-weight: var(--w-semibold) }
+.how p { color: var(--text-muted); text-wrap: pretty }
+
+/* ---------- Для кого ---------- */
+.aud .tabs { margin-bottom: var(--sp-8) }
+.aud-panels { display: grid }
+.aud-pn { grid-area: 1 / 1; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: var(--sp-16); align-items: center;
+  opacity: 0; visibility: hidden; transform: translateY(6px);
+  transition: opacity var(--dur-exit) var(--ease-out), transform var(--dur-exit) var(--ease-out), visibility 0s linear var(--dur-exit) }
+.aud-pn.on { opacity: 1; visibility: visible; transform: none; transition: opacity var(--dur-state) var(--ease-out) 60ms, transform var(--dur-state) var(--ease-out) 60ms, visibility 0s }
+.aud-tx { display: grid; gap: var(--sp-4) }
+.aud-tx h3 { font-size: var(--fs-2xl); line-height: var(--lh-2xl); letter-spacing: var(--ls-2xl); font-weight: var(--w-semibold); text-wrap: balance }
+.aud-tx > p { color: var(--text-muted); max-width: var(--measure-narrow); text-wrap: pretty }
+.aud-viz { display: grid; padding: var(--sp-3); border-radius: var(--r-xl); background: var(--bg-raised); box-shadow: inset 0 0 0 1px var(--border) }
+.av-head { display: flex; align-items: center; justify-content: space-between; gap: var(--sp-3); padding: var(--sp-2) var(--sp-3) var(--sp-3); font-size: var(--fs-base); line-height: var(--lh-base) }
+.av-head b { font-weight: var(--w-semibold) }
+.av-row { display: flex; align-items: center; justify-content: space-between; gap: var(--sp-4); min-height: 48px; padding: 0 var(--sp-3); font-size: var(--fs-sm); line-height: var(--lh-sm); color: var(--text-secondary) }
+.av-row + .av-row { box-shadow: 0 -1px 0 var(--border-subtle) }
+.av-row > span:last-child { white-space: nowrap; font-variant-numeric: tabular-nums; color: var(--text) }
+.lp-acc { color: var(--accent-text) !important; font-weight: var(--w-medium) }
+/* план по неделям: полосы этапов на шкале 8 недель */
+.lp-g-scale, .lp-g-row { display: grid; grid-template-columns: 148px minmax(0, 1fr); align-items: center; gap: var(--sp-3); padding: 0 var(--sp-3) }
+.lp-g-scale { min-height: 28px; font: var(--fs-xs)/var(--lh-xs) var(--font-mono); color: var(--text-faint) }
+.lp-g-wk { display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)) }
+.lp-g-row { min-height: 48px; font-size: var(--fs-sm); line-height: var(--lh-sm); color: var(--text-secondary); box-shadow: 0 -1px 0 var(--border-subtle) }
+.lp-g-row span { white-space: nowrap }
+.lp-g-row i { display: block; height: 12px; margin-left: calc(var(--s) / 8 * 100%); width: calc((var(--e) - var(--s)) / 8 * 100%); border-radius: var(--r-full); background: var(--surface-strong) }
+.lp-g-row i.hl-bar { background: var(--accent) }
+
+/* ---------- Подходит ---------- */
+.lp-fit { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--sp-8) var(--sp-6) }
+.lp-fit li { display: grid; grid-template-columns: 20px minmax(0, 1fr); gap: var(--sp-1) var(--sp-3); align-content: start }
+.lp-fit .lucide { width: 20px; height: 20px; margin-top: 4px; color: var(--accent-text); grid-row: 1 / span 2 }
+.lp-fit b { font-weight: var(--w-semibold) }
+.lp-fit span { font-size: var(--fs-base); line-height: var(--lh-base); color: var(--text-muted); text-wrap: pretty }
+
+/* ---------- Условия ---------- */
+.price { display: grid; grid-template-columns: minmax(0, 1fr) 440px; gap: var(--sp-16); align-items: center }
+.price-tx { display: grid; gap: var(--sp-3) }
+.price-tx p { margin-top: var(--sp-2); max-width: var(--measure-narrow); color: var(--text-muted); text-wrap: pretty }
+.price-card { display: grid; gap: var(--sp-5); padding: var(--sp-6); border-radius: var(--r-xl); background: var(--bg-raised); box-shadow: inset 0 0 0 1px var(--border) }
+.pc-head { display: flex; align-items: center; justify-content: space-between; gap: var(--sp-3); font-weight: var(--w-semibold) }
+.pc-head .badge { white-space: nowrap }
+.lp-terms .vz-row { min-height: 48px }
+.lp-terms .vz-row:last-child { box-shadow: none }
+
+/* ---------- Кейсы ---------- */
+.lp-cases { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--grid-gap) }
+.lp-case { display: grid; grid-template-rows: subgrid; grid-row: span 4; gap: var(--sp-3); padding: var(--sp-6); border-radius: var(--r-xl); background: var(--bg-raised); box-shadow: inset 0 0 0 1px var(--border) }
+.lp-case .badge { justify-self: start }
+.lp-case h3 { font-size: var(--fs-lg); line-height: var(--lh-lg); letter-spacing: var(--ls-lg); font-weight: var(--w-semibold); text-wrap: balance }
+.lp-case p { font-size: var(--fs-base); line-height: var(--lh-base); color: var(--text-muted); text-wrap: pretty }
+.lp-case-n { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--sp-4); margin-top: var(--sp-2); padding-top: var(--sp-4); box-shadow: inset 0 1px 0 var(--border-subtle) }
+.lp-case-n div { display: grid; gap: 2px }
+.lp-case-n b { font-size: var(--fs-xl); line-height: var(--lh-xl); letter-spacing: var(--ls-xl); font-weight: var(--w-semibold); font-variant-numeric: tabular-nums; white-space: nowrap }
+.lp-case-n span { font-size: var(--fs-sm); line-height: var(--lh-sm); color: var(--text-muted) }
+
+/* ---------- Заявка ---------- */
+.lp-contact { padding-bottom: var(--sp-24) }
+.lp-contact-in { display: grid; grid-template-columns: minmax(0, 1fr) 480px; gap: var(--sp-16); align-items: start; padding-top: var(--sp-16); box-shadow: inset 0 1px 0 var(--border-subtle) }
+.lp-contact-tx { display: grid; gap: var(--sp-3); align-content: start }
+.lp-contact-tx > p { margin-top: var(--sp-2); max-width: var(--measure-narrow); color: var(--text-muted); text-wrap: pretty }
+.lp-next { display: grid; gap: var(--sp-3); margin-top: var(--sp-5) }
+.lp-next li { display: grid; grid-template-columns: 3ch minmax(0, 1fr); gap: var(--sp-3); align-items: baseline; font-size: var(--fs-base); line-height: var(--lh-base); color: var(--text-secondary) }
+.lp-links { display: grid; gap: var(--sp-3); justify-items: start; margin-top: var(--sp-6) }
+.lp-links .link { display: inline-flex; align-items: center; gap: var(--sp-2) }
+.lp-links .lucide { width: 18px; height: 18px }
+.lp-form-box { display: grid; padding: var(--sp-6); border-radius: var(--r-xl); background: var(--bg-raised); box-shadow: inset 0 0 0 1px var(--border) }
+.lp-form, .lp-sent { grid-area: 1 / 1 }
+.lp-form { display: grid; gap: var(--sp-4); transition: opacity var(--dur-exit) var(--ease-out), visibility 0s }
+.lp-form .btn { margin-top: var(--sp-2) }
+.lp-sent { display: grid; gap: var(--sp-2); place-content: center; justify-items: center; text-align: center; opacity: 0; visibility: hidden; transform: translateY(6px);
+  transition: opacity var(--dur-exit) var(--ease-out), transform var(--dur-exit) var(--ease-out), visibility 0s linear var(--dur-exit) }
+.lp-sent > .lucide { width: 32px; height: 32px; margin-bottom: var(--sp-2); color: var(--success-text, var(--accent-text)) }
+.lp-sent h3 { font-size: var(--fs-xl); line-height: var(--lh-xl); font-weight: var(--w-semibold) }
+.lp-sent p { color: var(--text-muted); margin-bottom: var(--sp-4) }
+.lp-sent:focus { outline: none }
+.lp-form-box.done .lp-form { opacity: 0; visibility: hidden; transition: opacity var(--dur-exit) var(--ease-out), visibility 0s linear var(--dur-exit) }
+.lp-form-box.done .lp-sent { opacity: 1; visibility: visible; transform: none; transition: opacity var(--dur-state) var(--ease-out) 60ms, transform var(--dur-state) var(--ease-out) 60ms, visibility 0s }
+
+@media (prefers-reduced-motion: reduce) { .how li::after { transition-delay: 0s !important } }
+
+/* ---------- Ширины ---------- */
+@media (max-width: 1100px) {
+  .price { grid-template-columns: minmax(0, 1fr) 400px; gap: var(--sp-8) }
+  .lp-contact-in { grid-template-columns: minmax(0, 1fr) 420px; gap: var(--sp-8) }
+}
+@media (max-width: 960px) {
+  .lp-hero .wrap { grid-template-columns: minmax(0, 1fr); min-height: 0; padding-block: var(--sp-12) var(--sp-8); gap: var(--sp-8) }
+  .lp-scene { width: min(100%, 520px); justify-self: center }
+  .hero-title { font-size: var(--fs-3xl); line-height: var(--lh-3xl); letter-spacing: var(--ls-3xl) }
+  .lp-cases { grid-template-columns: minmax(0, 1fr) }
+  .lp-case { grid-template-rows: none; grid-row: auto }
+}
+@media (max-width: 860px) {
+  .lp-demo { grid-template-columns: minmax(0, 1fr) }
+  .how { grid-template-columns: minmax(0, 1fr); gap: var(--sp-6) }
+  .aud-pn { grid-template-columns: minmax(0, 1fr); gap: var(--sp-8); align-items: start }
+  .price, .lp-contact-in { grid-template-columns: minmax(0, 1fr); gap: var(--sp-8) }
+  .lp-contact-in { padding-top: var(--sp-12) }
+}
+@media (max-width: 560px) {
+  .hero-title { font-size: var(--fs-2xl); line-height: var(--lh-2xl); letter-spacing: var(--ls-2xl) }
+  .lp-b5, .lp-b6 { display: none }
+  .lp-src { font-size: 11px; line-height: 20px; padding: var(--sp-3) }
+  .lp-app { padding: var(--sp-4) }
+  .lp-slot { height: 40px; padding: 0 var(--sp-3) }
+  .lp-row small, .lp-slot small { display: none }
+  .lp-row, .lp-slot { grid-template-columns: 6ch minmax(0, 1fr) }
+  .lp-saas-r { grid-template-columns: minmax(0, 1fr) auto }
+  .lp-saas-r > span:nth-child(2), .lp-saas-r > b { display: none }
+  .lp-desk-body { grid-template-columns: minmax(0, 1fr) }
+  .lp-desk-side { display: none }
+  .lp-g-scale, .lp-g-row { grid-template-columns: 112px minmax(0, 1fr) }
+  .lp-g-row span { white-space: normal }
+  .how h3 { font-size: var(--fs-lg); line-height: var(--lh-lg); letter-spacing: var(--ls-lg) }
+  .lp-form-box { padding: var(--sp-5) }
+}
+@media (max-width: 420px) {
+  .lp-stores { display: none }   /* на узком телефоне бейджи магазинов переносили название модуля */
+}

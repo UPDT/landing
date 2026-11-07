@@ -1,0 +1,6 @@
+/* Бренд updt · общий для всех страниц (RU и EN)
+   Знак «Ступени»: три полосы растущей высоты, v1 → v2 → v3 (DECISIONS.md). Название Unbounded 600, строчными.
+   Шрифт подключать: family=Unbounded:wght@600 */
+.logo { gap: 8px; font-family: Unbounded, var(--font-sans); font-weight: 600; font-size: 16px; line-height: 1; letter-spacing: -.02em; white-space: nowrap }
+.logo svg { width: 22px; height: 22px; flex: none; color: var(--accent) }
+[data-theme="light"] .logo svg { color: var(--accent-edge, var(--accent)) }
