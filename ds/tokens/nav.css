@@ -62,6 +62,11 @@
   transition: opacity 100ms var(--ease-out), transform var(--dur-morph) var(--ease-out), visibility 0s linear 100ms }
 .nav-content.active { opacity: 1; visibility: visible; pointer-events: auto; transform: none;
   transition: opacity var(--dur-enter) var(--ease-out) 40ms, transform var(--dur-morph) var(--ease-out), visibility 0s }
+/* панель закрыта — активное содержимое тоже скрыто: его явные visible/auto перебивают скрытие панели,
+   и без этого после первого открытия под шапкой оставались невидимые ссылки (ловили клики и Tab).
+   Клики отключаются сразу, видимость — после угасания панели */
+.nav-panel:not(.open) .nav-content.active { visibility: hidden; pointer-events: none;
+  transition: opacity var(--dur-enter) var(--ease-out) 40ms, transform var(--dur-morph) var(--ease-out), visibility 0s linear var(--dur-exit) }
 
 /* содержимое: колонки и подписи; разделение — только воздухом */
 .mega { display: grid; padding: var(--sp-2); gap: 0 var(--sp-2) }
