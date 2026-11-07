@@ -3,7 +3,13 @@
 
 /* ---------- Первый экран со сценой ---------- */
 /* ровно в окно под шапкой (72px в мягком стиле), содержимое по центру; две равные колонки, до 960px одна */
-.lp-hero { padding: 0; overflow: clip }
+.lp-hero { position: relative; padding: 0; overflow: clip; --grid-line: color-mix(in srgb, var(--text) 7%, transparent) }
+/* фон первого экрана — сетка-чертёж: тонкие линии через 56px, к краям гаснут (выбор пользователя: пустой фон) */
+.lp-hero::before { content: ""; position: absolute; inset: 0; pointer-events: none;
+  background-image: linear-gradient(var(--grid-line) 1px, transparent 1px), linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 56px 56px; background-position: center -1px;
+  -webkit-mask-image: radial-gradient(ellipse 75% 70% at 50% 45%, #000 35%, transparent 80%); mask-image: radial-gradient(ellipse 75% 70% at 50% 45%, #000 35%, transparent 80%) }
+.lp-hero > .wrap { position: relative; z-index: 1 }
 .lp-hero .wrap { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--sp-12); align-items: center; min-height: calc(100svh - 72px); padding-block: var(--sp-12) }
 .lp-hero-tx { display: grid; gap: var(--sp-6); align-content: center }
 .hero-title { font-size: var(--fs-4xl); line-height: var(--lh-4xl); letter-spacing: var(--ls-4xl); font-weight: var(--w-semibold); text-wrap: balance }
